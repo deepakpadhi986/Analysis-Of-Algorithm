@@ -1,1 +1,251 @@
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Primary Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Analysis of Algorithm | Practicals</title>
+        <meta name="title" content="Analysis of Algorithm | Practicals">
+        <meta name="description" content="Practicals for Analysis of Algorithm done during my M.sc Computer Science Sem1 at Ramnarain Ruia Autonomous College. ">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://deepakpadhi986.github.io/Analysis-Of-Algorithm/">
+        <meta property="og:title" content="Analysis of Algorithm | Practicals">
+        <meta property="og:description" content="Practicals for Analysis of Algorithm done during my M.sc Computer Science Sem1 at Ramnarain Ruia Autonomous College. ">
+        <meta property="og:image" content="https://raw.githubusercontent.com/deepakpadhi986/Analysis-Of-Algorithm/main/content/meta.png">
+        <meta property="og:image:width" content="1300"/>
+        <meta property="og:image:height" content="630"/>
+        <meta property="og:image:type" content="image/png"/>
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://deepakpadhi986.github.io/Analysis-Of-Algorithm/">
+        <meta property="twitter:title" content="Analysis of Algorithm | Practicals">
+        <meta property="twitter:description" content="Practicals for Analysis of Algorithm done during my M.sc Computer Science Sem1 at Ramnarain Ruia Autonomous College.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/deepakpadhi986/Analysis-Of-Algorithm/main/content/meta.png">
+        <meta property="og:image:width" content="1300"/>
+        <meta property="og:image:height" content="630"/>
+        <meta property="og:image:type" content="image/png"/>
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="content/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="content/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="content/favicon/favicon-16x16.png">
+        <link rel="manifest" href="content/favicon/site.webmanifest">
+        <!-- bootswatch -->
+        <link rel="stylesheet" href="content/css/bootswatch.css">
+        <!-- custom css -->
+        <link rel="stylesheet" href="content/css/style.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPSDWS46K1"></script>
+        <script src="content/script/gtag.js"></script>
+        <!--  Microsoft clarity    -->
+        <script src="content/script/msc.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="section header-section">
+                <h1>Sorting Algorithms</h1><hr>
+                <p>A Java program which allows users to choose from popular sorting algorithms like Bubble Sort, Heap Sort, Selection Sort, and Insertion Sort. Users input the array size and elements, and the program displays the original and sorted arrays, total steps taken, and execution time. The complete code structure uses dedicated functions for each sorting algorithm, enhancing modularity and clarity.</p>
+            </div>
+            <div class="section code-section">
+                <h2>Code (Java)</h2><hr>
+                <code id="codeBlock">
+    import java.util.Scanner;
+    import java.util.Arrays;
+    public class SortingAlgo {
+    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.println("Select a sorting algorithm: \n");
+            System.out.println("1. Bubble Sort \n");
+            System.out.println("2. Heap Sort \n");
+            System.out.println("3. Selection Sort \n");
+            System.out.println("4. Insertion Sort \n");
+    
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+    
+            System.out.print("Enter the size of the array: ");
+            int size = scanner.nextInt();
+    
+                int[] arr = new int[size];
+                System.out.println("Enter " +size+   " numbers: ");
+                
+                for(int i=0; i<size; ++i)  
+                {  
+                //reading array elements from the user   
+                arr[i]=scanner.nextInt();  
+            } 
+                System.out.println("Original Array:");
+            printArray(arr);
+            
+            long startTime = 0;
+            long endTime = 0;
+            int totalSteps = 0;
+    
+            switch (choice) {
+                case 1:
+                    System.out.println("Bubble Sort:");
+                    startTime = System.nanoTime();
+                    totalSteps = bubbleSort(arr);
+                    endTime = System.nanoTime();
+                    break;
+                case 2:
+                    System.out.println("Heap Sort:");
+                    startTime = System.nanoTime();
+                    totalSteps = heapSort(arr);
+                    endTime = System.nanoTime();
+                    break;
+                case 3:
+                    System.out.println("Selection Sort:");
+                    startTime = System.nanoTime();
+                    totalSteps = selectionSort(arr);
+                    endTime = System.nanoTime();
+                    break;
+                case 4:
+                    System.out.println("Insertion Sort:");
+                    startTime = System.nanoTime();
+                    totalSteps = insertionSort(arr);
+                    endTime = System.nanoTime();
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    return;
+            }
+    
+            long elapsedTime = endTime - startTime;
+    
+            System.out.println("\nSorted Array: " + Arrays.toString(arr));
+            System.out.println("\n Total Steps: " + totalSteps);
+            System.out.println("\n Time Taken (ns): " + elapsedTime);
+    
+            scanner.close();
+        }
+        public static int bubbleSort(int[] arr) {
+            int steps = 0;
+            int n = arr.length;
+            for (int i = 0; i < n - 1; ++i) {
+                for (int j = 0; j < n - i - 1; ++j) {
+                    if (arr[j] > arr[j + 1]) {
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        steps++;
+                    }
+                }
+            }
+            return steps;
+        }
+    
+        public static int heapSort(int[] arr) {
+            int steps = 0;
+            int step= 0;
+            int n = arr.length;
+            for (int i = n / 2 - 1; i >= 0; --i) {
+                step = heapify(arr, n, i);
+                steps = steps + step;
+            }
+    
+            for (int i = n - 1; i >= 0; --i) { 
+                int temp = arr[0];
+                arr[0] = arr[i];
+                arr[i] = temp;
+                steps++;
+                step = heapify(arr, i, 0);
+                steps = steps + step;
+            }
+            return steps;
+        }
+    
+        public static int heapify(int[] arr, int n, int i) {
+            int steps = 0;
+            int step= 0;
+            
+            int largest = i;
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+    
+            if (left < n && arr[left] > arr[largest]) {
+                largest = left;
+            }
+    
+            if (right < n && arr[right] > arr[largest]) {
+                largest = right;
+            }
+    
+            if (largest != i) {
+                int temp = arr[i];
+                arr[i] = arr[largest];
+                arr[largest] = temp;
+                steps++;
+                step = heapify(arr, n, largest);
+                steps = steps+step;
+            }
+            return steps;
+        }
+    
+        public static int insertionSort(int[] arr) {
+            int steps = 0;
+            int n = arr.length;
+            for (int i = 1; i < n; ++i) {
+                int key = arr[i];
+                int j = i - 1;
+                while (j >= 0 && arr[j] > key) {
+                    arr[j + 1] = arr[j];
+                    //steps++;
+                    --j;
+                }
+                arr[j + 1] = key;
+                steps++;
+            }
+            return steps;
+        }
+        
+        public static int selectionSort(int[] arr) {
+            int steps = 0;
+            int n = arr.length;
+            for (int i = 0; i < n - 1; ++i) {
+                int min_idx = i;
+                for (int j = i + 1; j < n; ++j) {
+                    if (arr[j] < arr[min_idx]) {
+                        min_idx = j;
+                    }
+                }
+                int temp = arr[i];
+                arr[i] = arr[min_idx];
+                arr[min_idx] = temp;
+                steps++;
+            }
+            return steps;
+    }
+    
+        static void printArray(int[] arr) {
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }                                        
+                </code>
+                <button class="btn btn-outline-primary copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+            </div>
+            <div class="section output-section">
+                <h2>Output Section</h2><hr>
+                <p>1. Bubble Sort</p>
+                <img class="output-image" src="content/images/bubble-sort.png" alt="bubble-sort"><hr>
+                <p>2. Heap Sort</p>
+                <img class="output-image" src="content/images/heap-sort.png" alt="heap-sort"><hr>
+                <p>3. Selection Sort</p>
+                <img class="output-image" src="content/images/insertion-sort.png" alt="insertion-sort"><hr>
+                <p>4. Insertion Sort</p>
+                <img class="output-image" src="content/images/selection-sort.png" alt="selection-sort">
+            </div>
+            <div class="section conclusion-section">
+                <h2>Conclusion</h2><hr>
+                <p>A Java program that lets you pick and compare common sorting methods like Bubble Sort, Heap Sort, Selection Sort, and Insertion Sort. It's user-friendly, taking array size and elements as input and showing the original and sorted arrays. We also tracks important details like steps taken and execution time, providing a clear picture of each algorithm's performance.</p>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="content/script/script.js" async></script>
+    </body>
+</html>
