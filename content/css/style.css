@@ -1,0 +1,191 @@
+body {
+    background-color: white;
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.section {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header-section {
+    background-color: #4682b4;
+    color: #fff;
+    padding: 20px;
+}
+
+.code-section {
+    background-color: #eef5f8;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.output-section {
+    background-color: #afeeee;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.output-section p{
+    margin-bottom: 0;
+    margin-left: 60px;
+}
+
+.output-image {
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 60px;
+}
+
+.conclusion-section {
+    background-color: #4682b4;
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.conclusion-section p, .header-section p{
+    text-align: justify;
+}
+code {
+    display: block;
+    white-space: pre-wrap;
+}
+
+button.copy-btn {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 425px) and (max-width: 375px){
+    .container{
+        margin-top: 15px;
+    }
+    .header-section h1{
+        font-size: 20px;
+    }
+    .header-section p{
+        font-size: 12px;
+    }
+    .code-section h2{
+        font-size: 18px;
+    }
+    .code-section code{
+        font-size: 6px;
+    }
+    .code-section button{
+        font-size: 10px;
+    }
+    .output-section h2{
+        font-size: 18px;
+    }
+    .output-section p{
+        font-size: 12px;
+        margin-left: 0px;
+    }
+    .output-image {
+        border-radius: 6px;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .conclusion-section h2{
+        font-size: 18px;
+    }
+    .conclusion-section p{
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 375px) and (max-width: 425px){
+    .code-section code{
+        font-size: 8px;
+    }
+    .output-section p{
+        font-size: 12px;
+        margin-left: 0px;
+    }
+    .output-image {
+        border-radius: 6px;
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+@media screen and (min-width: 425px) and (max-width: 700px){
+    .container{
+        margin-top: 15px;
+    }
+    .header-section h1{
+        font-size: 20px;
+    }
+    .header-section p{
+        font-size: 12px;
+    }
+    .code-section h2{
+        font-size: 18px;
+    }
+    .code-section code{
+        font-size: 9px;
+    }
+    .code-section button{
+        font-size: 10px;
+    }
+    .output-section h2{
+        font-size: 18px;
+    }
+    .output-section p{
+        font-size: 12px;
+        margin-left: 0px;
+    }
+    .output-image {
+        border-radius: 6px;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .conclusion-section h2{
+        font-size: 18px;
+    }
+    .conclusion-section p{
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 768px){
+    .container{
+        margin-top: 15px;
+    }
+    .header-section h1{
+        font-size: 24px;
+    }
+    .header-section p{
+        font-size: 14px;
+    }
+    .code-section h2{
+        font-size: 20px;
+    }
+    .code-section code{
+        font-size: 11px;
+    }
+    .code-section button{
+        font-size: 14px;
+    }
+    .output-section h2{
+        font-size: 20px;
+    }
+    .output-section p{
+        font-size: 16px;
+        margin-left: 0px;
+    }
+    .output-image {
+        border-radius: 8px;
+        width: 90%;
+        margin-left: 0px;
+    }
+    .conclusion-section h2{
+        font-size: 18px;
+    }
+    .conclusion-section p{
+        font-size: 12px;
+    }
+}
